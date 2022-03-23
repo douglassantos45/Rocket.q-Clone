@@ -55,6 +55,6 @@ You can see the layout of the project at [this link](https://www.figma.com/commu
 <img alt="rocket.q" src="https://i.imgur.com/EN2dzmu.png">
 
 <div align="center">
-  <img alt="rocket.q-smartphone" src="https://i.imgur.com/Jai8ou3.png">
+  <img alt="rocket.q-smartphone" src="https://i.imgur.com/Jai8ou3.png"><br/>
   <img alt="rocket.q-smartphone" src="https://i.imgur.com/yVsBcV2.png">
 </div>
