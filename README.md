@@ -39,9 +39,9 @@ Rocket.Q é uma plataforma de perguntas em salas privadas com senha para o acess
 
 Download this repositorie and with your teminal, enter in the directory
 
-1. Run the command `npm install` to install the dependencies
-2. After, run the command `npm run init-db` to install the database
-3. And to start the application, run the command `npm start` 
+1. Run the command `yarn` to install the dependencies
+2. After, run the command `yarn init:db` to install the database
+3. And to start the application, run the command `yarn dev:start` 
 
 ## 🔖 Layout
 
