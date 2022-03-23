@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+$background-modal: #000000d6;
+$black: #0D114f;
+$white: #FAFAFA;
+$red: #E83F5B;
+$ligth-blue: #E0ECFF;
+$blue: #3485FF;
+$background: #f6FAFF;
+$overlay: #040911;
+$icons-details: #a5B0C1;
+
+$grey-dark: #4D5E77;
+$grey-blue: #A1B2CD;
+$grey-light: #E5EAF1;
+$grey-opacity: #EAECF2;
+
+body {
+  display: flex;
+  height: 100vh;
+  background: $background;
+}
+
+body, button, input, textarea, p {
+  /* Clamp - Intervalo de tamanho, no menor tamanho ele fica com 14px e o padrão é 1.6rem e no máximo a 2vw */
+  font-size: clamp(14px, 1.6rem, 2vw);
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+input, button, .button {
+  border-radius: .8rem;
+  height: 5rem;
+}
+
+input {
+  transition: border-color .3s;
+  &:focus {
+    outline: none;
+    border-color: $blue;
+  }
+}
+
+button, .button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  line-height: 0;
+  padding: 1.3rem 3.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $blue;
+  color: $white;
+
+  cursor: pointer;
+
+  transition: filter .4s;
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  > img {
+    margin-right: 1rem;
+  }
+}
+
+button, .button {
+  &.red {
+    background: $red;
+  }
+  &.grey {
+    background: $grey-light;
+    color: black;
+
+    transition: background .4s;
+
+    &:hover {
+      filter: none;
+      background: #d1d1d382;
+    }
+  }
+  &.outlined {
+    background: white;
+    color: $blue;
+    border: .2rem solid $blue;
+
+    &:hover {
+      filter: none;
+    }
+  }
+}
+
+
+.content
+  header {
+    width: 80%;
+    margin: 3.5rem auto;
+
+    img {
+      width: 16.7rem;
+    }
+  }
+
+.content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  opacity: 0;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=Poppins:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/styles/index.min.css">
+  <title>Rocket.q - Perguntas e Respostas</title>
+</head>
+
+<body>
+  <div id="room" class="content">
+    <header>
+      <a href="/">
+        <img src="/assets/logo.svg" alt="logo" />
+      </a>
+      <div class="buttons">
+        <button type="button" class="button outlined" id="room-id" data-id="<%= roomId%>">#<%= roomId %> <i
+              class="bi-back"></i></button>
+        <a href="#" class="button"><i class="bi-people"></i>Criar sala</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="question-form">
+        <h2>Faça a sua pergunta</h2>
+        <form action="/question/create/<%= roomId %> " method="POST">
+          <label for="question" class="sr-only"> O que você quer perguntar?</label>
+          <textarea name="question" rows="5" id="question" placeholder="O que você quer perguntar?"></textarea>
+
+          <footer class="question-send">
+            <div>
+              <i class="bi-lock-fill"></i>
+              Essa pergunta é anônima
+            </div>
+            <button type="submit" class="button"><i class="bi-send"></i></button>
+          </footer>
+        </form>
+      </section>
+
+      <section id="questions">
+        <h2 class="sr-only">Perguntas da comunidade</h2>
+        <div class="questions">
+
+          <% if (questions) { %>
+            <% questions.forEach(question=> { %>
+              <div class="question-wrapper" data-question="<%= question.id  %>">
+                <div class="question-content">
+                  <div class="user">
+                    <i class="bi-person"></i>
+                  </div>
+                  <div class="question">
+                    <p>
+                      <%= question.title %>
+                    </p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a class="check" href="#" data-id="<%= question.id %>">
+                    <i class="bi-check2-all"></i>
+                    Marcar como lida
+                  </a>
+                  <a class="remove" href="#" data-id="<%= question.id %>">
+                    <i class="bi-trash"></i>
+                    Excluir
+                  </a>
+                </div>
+              </div>
+              <% })%>
+
+                <!-- QUESTIONS WITH READ -->
+
+                <% } if(questionsRead) { %>
+                  <% questionsRead.forEach(questionRead=> { %>
+                    <div class="question-wrapper read" data-question="<%= questionRead.id  %>">
+                      <div class="question-content">
+                        <div class="user">
+                          <i class="bi-person"></i>
+                        </div>
+                        <div class="question">
+                          <p>
+                            <%= questionRead.title %>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="actions">
+                        <a class="remove" href="#" data-id="<%= questionRead.id %>">
+                          <i class="bi-trash"></i>
+                          Excluir
+                        </a>
+                      </div>
+                    </div>
+                    <% })%>
+                      <!-- END QUESTION WITH READ -->
+                      <% } else { %>
+                        <div>
+                          <p>Seja o primeiro a fazer uma pergunta.</p>
+                        </div>
+                        <% } %>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-wrapper">
+    <div class="modal">
+      <h2>Excluir Pergunta</h2>
+      <p>Tem certeza que você deseja excluir esta pergunta?</p>
+
+      <form action="" method="POST">
+        <label for="password" class="sr-only">Digite sua Senha de administrador</label>
+        <input type="password" id="password" name="password" placeholder="Digite a senha">
+
+        <div class="buttons" id="btns">
+          <div class="button grey" id="close">Cancelar</div>
+          <button type="submit">Sim, excluir</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script defer type="module" src="/js/main.js"></script>
+</body>
+
+</html>

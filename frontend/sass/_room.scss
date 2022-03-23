@@ -1,0 +1,227 @@
+@import 'modal';
+
+#room {
+  &.content {
+    max-width: #{"min(112rem, 90%)"};
+  }
+  header, .buttons {
+    display: flex;
+  }
+  header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    .buttons
+      .button:first-child {
+        padding: 1.3rem 1.6rem;
+        margin-right: .8rem;
+
+        i {
+          margin-left: 1rem;
+        }
+
+      }
+      .button:nth-child(2) {
+        padding: 1.3rem 3.2rem;
+        i {
+          margin-right: 1rem;
+        }
+      }
+  }
+  main {
+
+    #question-form
+      h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 4.2rem;
+
+        margin-bottom: 2.4rem;
+      }
+
+      form {
+        border: .1rem solid $grey-blue;
+        padding: 1.6rem;
+        border-radius: 0 .8rem .8rem .8rem;
+
+        margin-bottom: 2rem;
+
+        textarea {
+          width: 100%;
+          background: none;
+          resize: none;
+          outline: 0;
+
+          &::placeholder {
+            color: $grey-blue;
+          }
+        }
+
+        footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          i {
+            margin-right: 0;
+          }
+
+          div:nth-child(1) {
+              margin-top: 3rem;
+              font-family: 'Poppins';
+              font-weight: 400;
+              font-size: 1.3rem;
+              color: $icons-details;
+
+              i {
+                font-size: 1.3rem;
+              }
+
+          }
+
+          .button {
+            width: 4.5rem;
+            margin-bottom: 0;
+
+            clip-path: circle();
+            cursor: pointer;
+
+            i {
+              color: $white;
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+
+      #questions {
+        .question-wrapper {
+          background: $ligth-blue;
+
+          height: auto;
+          border-radius: 0 .8rem .8rem .8rem;
+          padding: 2.4rem;
+          margin-bottom: .9rem;
+
+          .question-content {
+            display: flex;
+            /*align-items: flex-start;*/
+
+            margin-bottom: 2.4rem;
+
+            .user {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 5.5rem;
+
+              padding: 1.4rem;
+              background: $blue;
+              clip-path: circle();
+
+              i {
+                color: $white;
+                font-size: 2.1rem;
+              }
+            }
+
+            .question
+              p {
+                margin-left: 1.2rem;
+                font-size: 1.4rem;
+                min-height: 5.5rem;
+                color: $black;
+
+                word-break: break-word; /*Se tiver uma palavra muito grande ela não quebra o layout*/
+              }
+          }
+
+          .actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            a {
+              font-size: 1.2rem;
+              color: $grey-dark;
+
+              i {
+                margin-right: .2rem;
+              }
+
+              &.check {
+                margin-right: 2.2rem;
+                i {
+                  color: $blue;
+                }
+
+                transition: color .3s;
+
+                &:hover {
+                  color: $blue;
+                }
+              }
+
+              &.remove {
+                i {
+                  color: $red;
+                }
+
+                transition: color .3s;
+
+                &:hover {
+                  color: $red;
+                }
+              }
+            }
+          }
+        }
+
+        .read {
+          background: $grey-opacity;
+
+          .question-content {
+            .user {
+              background: $grey-blue;
+            }
+          }
+        }
+      }
+    }
+}
+
+@media(max-width: 578px) {
+  #room {
+    header, .buttons {
+      display: block;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+
+      font-size: 1.2rem;
+
+      i {
+        font-size: 1.6rem;
+      }
+    }
+
+    main {
+      #question-form {
+        h2 {
+          font-size: 2.5rem;
+        }
+
+        footer {
+          div:nth-child(1) {
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+
+  }
+}

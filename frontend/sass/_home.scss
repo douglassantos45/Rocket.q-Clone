@@ -1,0 +1,103 @@
+#home {
+  &.content {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 11.4rem 1fr;
+
+    grid-template-areas:
+    'header header'
+    'left right'
+    ;
+  }
+}
+
+header {
+  grid-area: header;
+}
+
+#bg {
+  grid-area: left;
+
+  background: url('../assets/ilustracao.svg') no-repeat top/contain;
+  background-position: -1.5rem;
+
+  /*Criando os circulos na tela*/
+
+  .ball {
+    background: $blue;
+    width: 21.2rem;
+    height: 21.2rem;
+    position: fixed;
+
+    clip-path: circle();
+
+    opacity: 0.1;
+
+    &.top {
+      top: -46rem;
+      right: -35rem;
+
+      width: 63.3rem;
+      height: 63.3rem;
+    }
+
+    &.bottom {
+      bottom: -15rem;
+      right: 5.6rem;
+    }
+  }
+}
+
+#home {
+  main {
+    grid-area: right;
+    display: flex;
+    align-items: center;
+    margin-top: -12rem;
+
+    .container {
+        width: #{"min(36.5rem, 100%)"};
+    }
+    h2 {
+      font-size: clamp(20px, 5vw, 2.8rem);
+      color: $black;
+
+      margin-bottom: 2.4rem;
+    }
+
+    input {
+      border: .2rem solid $grey-blue;
+      padding: 0 1.6rem;
+      color: $blue;
+    }
+    input, button, .button {
+      width: 100%;
+      margin-bottom: 1.8rem;
+    }
+
+    .button
+      i {
+        font-size: 1.8rem;
+        margin-right: .7rem;
+      }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      margin: 4rem 0;
+
+      div:nth-child(2) {
+        color: $grey-blue;
+        padding: 0 1.35rem;
+        line-height: 0;
+      }
+
+      div:nth-child(1),
+      div:nth-child(3) {
+        background: $grey-blue;
+        width: 100%;
+        height: .1rem;
+      }
+    }
+  }
+}
